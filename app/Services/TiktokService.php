@@ -14,6 +14,10 @@ class TiktokService
     }
 
     public function getVideos() {
-        return $this->tiktok->getUserFeed(config('services.tiktok.user'),$maxCursor=0);
+        return cache()->remember(
+            "tiktok_videos",
+            60*5,
+            fn() => $this->tiktok->getUserFeed(config('services.tiktok.user'),$maxCursor=0)
+        );
     }
 }

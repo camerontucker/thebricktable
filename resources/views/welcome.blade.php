@@ -24,17 +24,25 @@
         <img src="{{ asset('typewriter.jpg') }}" class="w-full md:hidden" />
         <div class="max-w-7xl">
             <div class="grid grid-flow-row justify-items-center items-center">
-                <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
-                <div class="w-full md:w-1/2 mb-10">
-                    <div class="w-full aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/{{ $new_youtube[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @if(!empty($new_youtube))
+                    <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
+                    <div class="w-full md:w-1/2 mb-10">
+                        <div class="w-full aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.youtube.com/embed/{{ $new_youtube[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="bg-gray-700 w-full text-white text-center pb-4">
                     <h2 class="py-8 text-2xl font-semibold underline">
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
-                    <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
+                    @if(!empty($instagram))
+                        @foreach($instagram as $post)
+                            <img src="{{ $post['url'] }}" />
+                        @endforeach
+                    @else
+                        <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
+                    @endif
                 </div>
                 <h2 class="py-8 text-2xl font-semibold underline">
                     <a href="https://www.tiktok.com/@bricktable.dg">TikTok</a>

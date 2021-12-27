@@ -14,6 +14,10 @@ class YoutubeService
     }
 
     public function getVideos() {
-        return $this->youtube->listChannelVideos(config('services.youtube.channel'),40);
+        return cache()->remember(
+            "youtube_videos",
+            60*5,
+            fn() => $this->youtube->listChannelVideos(config('services.youtube.channel'),40)
+        );
     }
 }
