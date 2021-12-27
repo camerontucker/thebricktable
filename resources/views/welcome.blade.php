@@ -20,9 +20,9 @@
     </head>
     <body class="antialiased">
     <div class="min-h-full">
-        <div class="max-w-7xl">
+        <img src="{{ asset('half_banner.jpg') }}" class="w-full" />
+        <div class="max-w-prose">
             <div class="grid grid-flow-row justify-items-center items-center">
-                <img src="{{ asset('half_banner.jpg') }}" class="w-full" />
                 <!--<img src="bricktable.jpg" height=100 width=100 />-->
                 <h2 class="py-8 text-3xl font-bold">Latest Video</h2>
                 <div class="w-1/2 mb-10">
