@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Alaouy\Youtube\Youtube;
 
-class YouTubeService
+class YoutubeService
 {
     private $youtube;
 

@@ -33,6 +33,12 @@ return [
     'youtube' => [
         'key' => env('YOUTUBE_API_KEY'),
         'channel' => env('YOUTUBE_CHANNEL')
+    ],
+
+    'instagram' => [
+        'id' => env('INSTAGRAM_ID'),
+        'key' => env('INSTAGRAM_KEY'),
+        'feed' => env('INSTAGRAM_FEED')
     ]
 
 ];
