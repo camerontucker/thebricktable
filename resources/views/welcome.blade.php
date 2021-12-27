@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="description" content="Get excited about the latest LEGO sets with us! Gather around and build."/>
         <title>Brick Table</title>
 
         <!-- Fonts -->
