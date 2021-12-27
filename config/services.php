@@ -39,6 +39,9 @@ return [
         'id' => env('INSTAGRAM_ID'),
         'key' => env('INSTAGRAM_KEY'),
         'feed' => env('INSTAGRAM_FEED')
-    ]
+    ],
 
+    'tiktok' => [
+        'user' => env('TIKTOK_USER')
+    ]
 ];

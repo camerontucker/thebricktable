@@ -20,28 +20,36 @@
     </head>
     <body class="antialiased">
     <div class="min-h-full">
-        <img src="{{ asset('half_banner.jpg') }}" class="w-full" />
+        <img src="{{ asset('half_banner.jpg') }}" class="w-full hidden md:block" />
+        <img src="{{ asset('typewriter.jpg') }}" class="w-full md:hidden" />
         <div class="max-w-7xl">
             <div class="grid grid-flow-row justify-items-center items-center">
                 <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
                 <div class="w-full md:w-1/2 mb-10">
                     <div class="w-full aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/{{ $new_videos[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/{{ $new_youtube[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="bg-gray-700 w-full text-white text-center pb-4">
-                    <h2 class="py-8 text-2xl font-semibold">Instagram</h2>
-                    <a href="https://www.instagram.com/bricktable.dg/">@bricktable.dg</a>
+                    <h2 class="py-8 text-2xl font-semibold underline">
+                        <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
+                    </h2>
+                    <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
                 </div>
-                <div class="w-full text-center pb-4">
-                    <h2 class="py-8 text-2xl font-semibold">TikTok</h2>
-                    <a href="https://www.instagram.com/bricktable.dg/">@bricktable.dg</a>
+                <h2 class="py-8 text-2xl font-semibold underline">
+                    <a href="https://www.tiktok.com/@bricktable.dg">TikTok</a>
+                </h2>
+                <div class="w-full md:w-1/3 mb-10">
+                    <a href="{{ $new_tiktok->items[0]->video->playAddr }}">
+                        <img src="{{ $new_tiktok->items[0]->video->cover }}" />
+                    </a>
                 </div>
+
                 <!--<h2 class="py-8 text-3xl font-bold">New Videos</h2>-->
             </div>
         </div>
 
-        @foreach($new_videos as $new_video)
+        @foreach($new_youtube as $new_video)
             @if(!$loop->first)  
             <!--<div class="embla__slide__inner">
               <img class="embla__slide__img" src="{{ $new_video->snippet->thumbnails->high->url }}" />
@@ -54,32 +62,8 @@
                     <img class="" src="bricktable.jpg" height=100 width=100 />
                 </div>
                 <div class="flex justify-center">
-                <a href="#!" class="mr-6 text-gray-600">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
-                    class="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 512">
-                    <path fill="currentColor"
-                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
-                    </path>
-                    </svg>
-                </a>
-                <a href="#!" class="mr-6 text-gray-600">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
-                    class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
-                    </path>
-                    </svg>
-                </a>
-                <a href="#!" class="mr-6 text-gray-600">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
-                    class="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-                    <path fill="currentColor"
-                        d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z">
-                    </path>
-                    </svg>
-                </a>
-                <a href="#!" class="mr-6 text-gray-600">
+                    <span class="mr-4 font-semibold">Brick Table</span>
+                <a href="https://www.instagram.com/bricktable.dg" class="mr-6 text-gray-600">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                     class="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path fill="currentColor"
@@ -87,16 +71,15 @@
                     </path>
                     </svg>
                 </a>
-                <a href="#!" class="mr-6 text-gray-600">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
-                    class="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512">
-                    <path fill="currentColor"
-                        d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
-                    </path>
+                <a href="https://www.tiktok.com/@bricktable.dg" class="mr-6 text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2859 3333" 
+                    shape-rendering="geometricPrecision" text-rendering="geometricPrecision" 
+                    image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+                    class="w-4" role="img" data-icon="tiktok" data-prefix="fab" >
+                        <path fill="currentColor" d="M2081 0c55 473 319 755 778 785v532c-266 26-499-61-770-225v995c0 1264-1378 1659-1932 753-356-583-138-1606 1004-1647v561c-87 14-180 36-265 65-254 86-398 247-358 531 77 544 1075 705 992-358V1h551z"/>
                     </svg>
                 </a>
-                <a href="#!" class="text-gray-600">
+                <a href="https://github.com/camerontucker/thebricktable" class="text-gray-600">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                     class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                     <path fill="currentColor"
