@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\TiktokService;
 use App\Services\YoutubeService;
 use Dymantic\InstagramFeed\Profile;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -17,9 +18,9 @@ class HomeController extends Controller
             $youtubeVideos = $youtube->getVideos();
         } catch(\Exception $e)
         {
-            // do nothing
+            Log::alert($e->getMessage());
         }
-        
+
         return view('welcome')
         ->with('new_youtube',$youtubeVideos)
         //->with('new_instagram',$instagram)
