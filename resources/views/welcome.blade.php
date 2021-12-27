@@ -25,7 +25,7 @@
                 <img src="{{ asset('half_banner.jpg') }}" class="w-full" />
                 <!--<img src="bricktable.jpg" height=100 width=100 />-->
                 <h2 class="py-8 text-3xl font-bold">Latest Video</h2>
-                <div class="w-1/2">
+                <div class="w-1/2 mb-10">
                     <div class="w-full aspect-w-16 aspect-h-9">
                         <iframe src="https://www.youtube.com/embed/{{ $new_videos[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
