@@ -16,7 +16,6 @@
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     </head>
     <body class="antialiased">
     <div class="min-h-full">
@@ -25,15 +24,19 @@
         <div class="w-full">
             <div class="grid grid-flow-row justify-items-center items-center">
                 @if(!empty($new_youtube))
-                    <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
-                    <div class="w-full md:w-1/2 mb-10">
+                    <h2 class="py-4 text-2xl font-semibold">Latest Video</h2>
+                    <div class="w-full md:w-1/2 mb-6">
                         <div class="w-full aspect-w-16 aspect-h-9">
                             <iframe src="https://www.youtube.com/embed/{{ $new_youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
+                    <a class="mb-6 group relative w-4/5 md:w-1/3 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
+                        href="https://www.youtube.com/channel/UCq2sQbO-T9CCfiuLLAuBtTw?sub_confirmation=1">
+                        Subscribe to our YouTube channel
+                    </a>
                 @endif
                 <div class="bg-gray-700 w-full text-white text-center pb-4">
-                    <h2 class="py-8 text-2xl font-semibold underline">
+                    <h2 class="py-4 text-2xl font-semibold underline">
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
                     @if(!empty($instagram))
@@ -44,29 +47,25 @@
                         <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
                     @endif
                 </div>
-                <h2 class="py-8 text-2xl font-semibold underline">
+                <h2 class="py-4 text-2xl font-semibold underline">
                     <a href="https://www.tiktok.com/@bricktable.dg">TikTok</a>
                 </h2>
                 @if(!empty($new_tiktok) && isset($new_tiktok->items) && count($new_tiktok->items))
-                    <div class="w-full md:w-1/3 mb-10">
+                    <div class="w-full md:w-1/3 mb-6">
                         <a href="{{ $new_tiktok->items[0]->video->playAddr }}">
                             <img src="{{ $new_tiktok->items[0]->video->cover }}" />
                         </a>
                     </div>
                 @else
-                    <a class="mb-10" href="https://www.tiktok.com/@bricktable.dg">@bricktable.dg</a>
+                    <a class="mb-6" href="https://www.tiktok.com/@bricktable.dg">@bricktable.dg</a>
                 @endif
 
                 <!--<h2 class="py-8 text-3xl font-bold">New Videos</h2>-->
             </div>
         </div>
         <footer class="text-center lg:text-left">
-            <div class="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300 bg-gray-100 text-gray-600">
-                <div class="mr-12 hidden lg:block">
-                    <img class="" src="bricktable.jpg" height=100 width=100 />
-                </div>
+            <div class="flex justify-center items-center p-6 border-b border-gray-300 bg-gray-100 text-gray-600">
                 <div class="flex justify-center">
-                    <span class="mr-4 font-semibold">Brick Table</span>
                 <a href="https://www.instagram.com/bricktable.dg" class="mr-6 text-gray-600">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                     class="w-3.5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
