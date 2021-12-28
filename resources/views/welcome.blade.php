@@ -28,7 +28,7 @@
                     <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
                     <div class="w-full md:w-1/2 mb-10">
                         <div class="w-full aspect-w-16 aspect-h-9">
-                            <iframe src="https://www.youtube.com/embed/{{ $new_youtube[0]->id->videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/{{ $new_youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 @endif
@@ -47,23 +47,19 @@
                 <h2 class="py-8 text-2xl font-semibold underline">
                     <a href="https://www.tiktok.com/@bricktable.dg">TikTok</a>
                 </h2>
-                <div class="w-full md:w-1/3 mb-10">
-                    <a href="{{ $new_tiktok->items[0]->video->playAddr }}">
-                        <img src="{{ $new_tiktok->items[0]->video->cover }}" />
-                    </a>
-                </div>
+                @if(!empty($new_tiktok) && isset($new_tiktok->items) && count($new_tiktok->items))
+                    <div class="w-full md:w-1/3 mb-10">
+                        <a href="{{ $new_tiktok->items[0]->video->playAddr }}">
+                            <img src="{{ $new_tiktok->items[0]->video->cover }}" />
+                        </a>
+                    </div>
+                @else
+                    <a class="mb-10" href="https://www.tiktok.com/@bricktable.dg">@bricktable.dg</a>
+                @endif
 
                 <!--<h2 class="py-8 text-3xl font-bold">New Videos</h2>-->
             </div>
         </div>
-
-        @foreach($new_youtube as $new_video)
-            @if(!$loop->first)  
-            <!--<div class="embla__slide__inner">
-              <img class="embla__slide__img" src="{{ $new_video->snippet->thumbnails->high->url }}" />
-            </div>-->
-            @endif
-        @endforeach
         <footer class="text-center lg:text-left">
             <div class="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300 bg-gray-100 text-gray-600">
                 <div class="mr-12 hidden lg:block">

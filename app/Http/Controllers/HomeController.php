@@ -13,17 +13,25 @@ class HomeController extends Controller
     {
         //$instagram = Profile::where('username', 'services.instagram.feed')->first()->feed();
 
-        $youtubeVideos = [];
+        $latestYoutubeVideo = "";
         try {
-            $youtubeVideos = $youtube->getVideos();
+            $latestYoutubeVideo = $youtube->getLatestVideo();
+        } catch(\Exception $e)
+        {
+            Log::alert($e->getMessage());
+        }
+
+        $tiktokVideos = [];
+        try {
+            $tiktokVideos = $tiktok->getVideos();
         } catch(\Exception $e)
         {
             Log::alert($e->getMessage());
         }
 
         return view('welcome')
-        ->with('new_youtube',$youtubeVideos)
+        ->with('new_youtube',$latestYoutubeVideo)
         //->with('new_instagram',$instagram)
-        ->with('new_tiktok',$tiktok->getVideos());
+        ->with('new_tiktok',$tiktokVideos);
     }
 }
