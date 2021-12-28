@@ -22,7 +22,7 @@
     <div class="min-h-full">
         <img src="{{ asset('half_banner.jpg') }}" class="w-full hidden md:block" />
         <img src="{{ asset('typewriter.jpg') }}" class="w-full md:hidden" />
-        <div class="max-w-7xl">
+        <div class="w-full">
             <div class="grid grid-flow-row justify-items-center items-center">
                 @if(!empty($new_youtube))
                     <h2 class="py-8 text-2xl font-semibold">Latest Video</h2>
