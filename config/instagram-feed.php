@@ -24,19 +24,19 @@ return [
      * a redirect_uri for your instagram app that is equal to combining the
      *  app url (from config) and this route
      */
-    'auth_callback_route' => 'instagram/auth/callback',
+    'auth_callback_route' => 'instagram-get-auth',
 
     /*
      * On success of the OAuth process you will be redirected to this route.
      * You may use query strings to carry messages
      */
-    'success_redirect_to' => 'instagram-auth-success?result=success',
+    'success_redirect_to' => 'instagram-auth-response?result=success',
 
     /*
      * If the OAuth process fails for some reason you will be redirected to this route.
      * You may use query strings to carry messages
      */
-    'failure_redirect_to' => 'instagram-auth-failure?result=failure',
+    'failure_redirect_to' => 'instagram-auth-response?result=failure',
 
     /*
      * You may filter out video media types by setting this to true. Carousel media
