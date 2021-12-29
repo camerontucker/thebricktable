@@ -24,19 +24,19 @@
         <div class="w-full">
             <div class="grid grid-flow-row justify-items-center items-center">
                 @if(!empty($new_youtube))
-                    <h2 class="py-4 text-2xl font-semibold">Latest Video</h2>
+                    <h2 class="py-6 text-2xl font-semibold">Latest Video</h2>
                     <div class="w-full md:w-1/2 mb-6">
                         <div class="w-full aspect-w-16 aspect-h-9">
                             <iframe src="https://www.youtube.com/embed/{{ $new_youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <a class="mb-6 group relative w-4/5 md:w-1/3 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
+                    <a class="mb-8 group relative w-4/5 md:w-1/3 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
                         href="https://www.youtube.com/channel/UCq2sQbO-T9CCfiuLLAuBtTw?sub_confirmation=1">
                         Subscribe to our YouTube channel
                     </a>
                 @endif
-                <div class="bg-gray-700 w-full text-white text-center pb-4">
-                    <h2 class="py-4 text-2xl font-semibold underline">
+                <div class="bg-gray-700 w-full text-white text-center pb-6">
+                    <h2 class="py-6 text-2xl font-semibold underline">
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
                     @if(!empty($new_instagram))
@@ -47,7 +47,7 @@
                         <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
                     @endif
                 </div>
-                <h2 class="py-4 text-2xl font-semibold underline">
+                <h2 class="py-6 text-2xl font-semibold underline">
                     <a href="https://www.tiktok.com/@bricktable.dg">TikTok</a>
                 </h2>
                 @if(!empty($new_tiktok) && isset($new_tiktok->items) && count($new_tiktok->items))
