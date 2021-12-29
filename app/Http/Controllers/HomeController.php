@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Services\TiktokService;
 use App\Services\YoutubeService;
 use App\Services\InstagramService;
-use Dymantic\InstagramFeed\Profile;
 use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
     public function index(YoutubeService $youtube, TiktokService $tiktok, InstagramService $instagram)
     {
-        //$instagram = Profile::where('username', 'services.instagram.feed')->first()->feed();
-
         $latestYoutubeVideo = "";
         try {
             $latestYoutubeVideo = $youtube->getLatestVideo();

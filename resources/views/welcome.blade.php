@@ -16,6 +16,31 @@
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+            />
+
+        <script type="module">
+        import Swiper from 'https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js'
+
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+
+            effect: 'cards',
+
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        </script>
     </head>
     <body class="antialiased">
     <div class="min-h-full">
@@ -35,14 +60,27 @@
                         Subscribe to our YouTube channel
                     </a>
                 @endif
-                <div class="bg-gray-700 w-full text-white text-center pb-6">
+                <div class="bg-gray-700 w-full text-white text-center pb-8">
                     <h2 class="py-6 text-2xl font-semibold underline">
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
                     @if(!empty($new_instagram))
-                        @foreach($new_instagram as $post)
-                            <img src="{{ $post['url'] }}" />
-                        @endforeach
+                    <div class="swiper max-h-xs max-w-xs md:max-h-lg md:max-w-lg">
+                        <div class="swiper-wrapper">
+                            @foreach($new_instagram as $post)
+                                <div class="swiper-slide">
+                                    <a href="{{ $post->permalink }}">
+                                        <img src="{{ $post->url }}" />
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                     @else
                         <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
                     @endif
