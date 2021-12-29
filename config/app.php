@@ -178,6 +178,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\YoutubeServiceProvider::class,
         App\Providers\TiktokServiceProvider::class,
+        App\Providers\InstagramServiceProvider::class,
     ],
 
     /*

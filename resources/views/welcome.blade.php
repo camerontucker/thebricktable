@@ -39,8 +39,8 @@
                     <h2 class="py-4 text-2xl font-semibold underline">
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
-                    @if(!empty($instagram))
-                        @foreach($instagram as $post)
+                    @if(!empty($new_instagram))
+                        @foreach($new_instagram as $post)
                             <img src="{{ $post['url'] }}" />
                         @endforeach
                     @else
@@ -59,8 +59,6 @@
                 @else
                     <a class="mb-6" href="https://www.tiktok.com/@bricktable.dg">@bricktable.dg</a>
                 @endif
-
-                <!--<h2 class="py-8 text-3xl font-bold">New Videos</h2>-->
             </div>
         </div>
         <footer class="text-center lg:text-left">
