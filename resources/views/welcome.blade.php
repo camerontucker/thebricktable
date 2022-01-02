@@ -60,7 +60,7 @@
             <div class="grid grid-flow-row justify-items-center items-center">
                 @if(!empty($new_youtube))
                     <h2 class="py-6 text-2xl font-semibold">Latest Video</h2>
-                    <div class="w-full mb-6">
+                    <div class="w-full md:w-1/2 mb-6">
                         <div class="w-full aspect-w-16 aspect-h-9">
                             <iframe src="https://www.youtube.com/embed/{{ $new_youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -75,7 +75,7 @@
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
                     @if(!empty($new_instagram))
-                    <div class="swiper max-w-xs md:max-w-3xl">
+                    <div class="swiper ml-4 max-w-xs md:max-w-3xl max-h-80 md:max-h-fit">
                         <div class="swiper-wrapper">
                             @foreach($new_instagram as $post)
                                 <div class="swiper-slide">
