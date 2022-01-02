@@ -21,8 +21,8 @@ Route::get('/forget', function () {
     return view('policy');
 });
 
-Route::get('instagram-get-auth', 'App\Http\Controllers\InstagramController@show');
-Route::get('instagram-auth-response', 'App\Http\Controllers\InstagramController@complete');
+//Route::get('instagram-get-auth', 'App\Http\Controllers\InstagramController@show');
+//Route::get('instagram-auth-response', 'App\Http\Controllers\InstagramController@complete');
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('dashboard');
