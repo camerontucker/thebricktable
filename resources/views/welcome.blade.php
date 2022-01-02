@@ -28,18 +28,28 @@
         const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
             loop: true,
-
-            effect: 'cards',
-
+            slidesPerView: 1,
+            spaceBetween: 10,
             pagination: {
                 el: '.swiper-pagination',
+                clickable: true,
             },
-
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                },
+            }
         });
+    
         </script>
     </head>
     <body class="antialiased">
@@ -50,7 +60,7 @@
             <div class="grid grid-flow-row justify-items-center items-center">
                 @if(!empty($new_youtube))
                     <h2 class="py-6 text-2xl font-semibold">Latest Video</h2>
-                    <div class="w-full md:w-1/2 mb-6">
+                    <div class="w-full mb-6">
                         <div class="w-full aspect-w-16 aspect-h-9">
                             <iframe src="https://www.youtube.com/embed/{{ $new_youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -65,7 +75,7 @@
                         <a href="https://www.instagram.com/bricktable.dg">Instagram</a>
                     </h2>
                     @if(!empty($new_instagram))
-                    <div class="swiper max-h-xs max-w-xs md:max-h-lg md:max-w-lg">
+                    <div class="swiper max-w-xs md:max-w-3xl">
                         <div class="swiper-wrapper">
                             @foreach($new_instagram as $post)
                                 <div class="swiper-slide">
@@ -75,11 +85,7 @@
                                 </div>
                             @endforeach
                         </div>
-
                         <div class="swiper-pagination"></div>
-
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
                     </div>
                     @else
                         <a href="https://www.instagram.com/bricktable.dg">@bricktable.dg</a>
