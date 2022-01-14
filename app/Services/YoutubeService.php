@@ -38,7 +38,7 @@ class YoutubeService
 
         $videos = cache()->remember(
             "youtube_videos",
-            60*5,
+            60*60,
             fn() => $this->youtube->listChannelVideos(config('services.youtube.channel'),40)
         );
 
